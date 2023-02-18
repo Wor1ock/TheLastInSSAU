@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
-
+[gd_scene load_steps=8 format=2]
 [ext_resource path="res://scenes/MainCharacter.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/TestLevel.gd" type="Script" id=3]
+[ext_resource path="res://scenes/HurtboxShape.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/TestLevel.gd" type="Script" id=4]
+
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 54.0208
@@ -12,15 +13,42 @@ radius = 54.0208
 [sub_resource type="SegmentShape2D" id=3]
 b = Vector2( 65, 69 )
 
+[sub_resource type="GDScript" id=4]
+script/source = "extends KinematicBody2D
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+
+
+func _on_HurtboxShape_area_entered(area):
+	queue_free()
+"
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 20, 20 )
+
 [node name="TestLevel" type="Node"]
 script = ExtResource( 3 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 1500.0
-margin_bottom = 700.0
+margin_right = 1000.0
+margin_bottom = 500.0
 color = Color( 0.690196, 0.878431, 0.588235, 1 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 921, 323 )
@@ -37,8 +65,33 @@ position = Vector2( 107, 327 )
 scale = Vector2( 2, 3 )
 shape = SubResource( 3 )
 
+
 [node name="MainCharacter" parent="." groups=["player"] instance=ExtResource( 1 )]
 position = Vector2( 171, 65 )
 
 [node name="Enemy" parent="." groups=["enemy"] instance=ExtResource( 2 )]
 position = Vector2( 509, 157 )
+
+[node name="TestEnemy" type="KinematicBody2D" parent="."]
+position = Vector2( 592, 144 )
+scale = Vector2( 2, 2 )
+collision_layer = 0
+collision_mask = 0
+script = SubResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="TestEnemy"]
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+color = Color( 0.85098, 0.14902, 0.14902, 1 )
+
+[node name="HurtboxShape" parent="TestEnemy" instance=ExtResource( 2 )]
+collision_layer = 8
+
+[node name="CollisionShape2D" parent="TestEnemy/HurtboxShape" index="0"]
+shape = SubResource( 5 )
+
+[connection signal="area_entered" from="TestEnemy/HurtboxShape" to="TestEnemy" method="_on_HurtboxShape_area_entered"]
+
+[editable path="TestEnemy/HurtboxShape"]
