@@ -26,8 +26,8 @@ config/icon="res://icon.png"
 
 [display]
 
-window/size/width=1280
-window/size/height=720
+window/size/width=1920
+window/size/height=1080
 
 [editor]
 
@@ -72,13 +72,6 @@ ui_down={
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":1,"axis_value":1.0,"script":null)
  ]
 }
-
-[layer_names]
-
-2d_physics/layer_1="World"
-2d_physics/layer_2="Player"
-2d_physics/layer_3="PlayerHurtbox"
-2d_physics/layer_4="EnemyHurtbox"
 
 [physics]
 

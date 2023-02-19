@@ -10,7 +10,7 @@ var direction := Vector2.ZERO
 # Раздел Top-down movement
 
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	movement_control()
 
 # Функция для управления движением
