@@ -28,9 +28,12 @@ var patrol_location: Vector2 = Vector2.ZERO
 var velocity: Vector2 = Vector2.ZERO 
 var patrol_location_reached = false
 
+
 func _ready():
 	set_state(State.PATROL)
 
+
+# Функция определяет поведение врага в разных состояниях
 func _physics_process(delta):
 	match current_state:
 		State.PATROL:
@@ -43,6 +46,8 @@ func _physics_process(delta):
 		State.ENGAGE:
 			engage(player)
 
+
+# Функция смены состояния
 func set_state(new_state: int):
 	if new_state == current_state:
 		return
@@ -55,6 +60,7 @@ func set_state(new_state: int):
 	emit_signal("state_changed", current_state)
 
 	
+# Смена состояния, если враг увидел игрока	
 func _on_PlayerDetectionZone_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
 		set_state(State.ENGAGE)
@@ -62,12 +68,15 @@ func _on_PlayerDetectionZone_body_entered(body: Node) -> void:
 		print("enter")
 
 
+# Смена состояния, если враг потерял игрока	
 func _on_PlayerDetectionZone_body_exited(body):
 	if player and body == player:
 		set_state(State.PATROL) 
 		player = null
 		print("exit")
 
+
+# Функция вступления в бой (пока что только бега за игроком)
 func engage(player):
 	motion = Vector2.ZERO
 	if player:
@@ -75,7 +84,7 @@ func engage(player):
 	motion = move_and_slide(motion)
 
 
-
+# Генерация случайного места назначения для патрулирования
 func _on_PatrolTimer_timeout():
 	var patrol_range = 50
 	var random_x = rand_range(-patrol_range, patrol_range)
