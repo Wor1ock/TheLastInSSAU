@@ -5,6 +5,8 @@ export var speed := 500
 
 var direction := Vector2.ZERO
 
+onready var _animated_sprite = $AnimatedSprite
+
 # Про анимирование всего этого добра можно почитать тут:
 # https://www.gdquest.com/tutorial/godot/2d/top-down-movement/
 # Раздел Top-down movement
@@ -12,6 +14,7 @@ var direction := Vector2.ZERO
 
 func _physics_process(_delta):
 	movement_control()
+	animation_control()
 
 # Функция для управления движением
 func movement_control():
@@ -19,3 +22,17 @@ func movement_control():
 	direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	# Функция, осуществляющая перемещение
 	direction = move_and_slide(direction * speed)
+	
+func animation_control():
+	if Input.is_action_pressed("ui_right"):
+		_animated_sprite.play("walk_right")
+		_animated_sprite.flip_h = false
+	elif Input.is_action_pressed("ui_left"):
+		_animated_sprite.play("walk_left")
+		_animated_sprite.flip_h = true
+	elif Input.is_action_pressed("ui_up"):
+		_animated_sprite.play("walk_back")
+	elif Input.is_action_pressed("ui_down"):
+		_animated_sprite.play("walk_front")
+	else:
+		_animated_sprite.play("idle_front")
