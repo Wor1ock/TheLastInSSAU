@@ -38,8 +38,8 @@ func _physics_process(delta):
 	match current_state:
 		State.PATROL:
 			if not patrol_location_reached:
-				move_and_slide(velocity)
-				if global_position.distance_to(patrol_location) < 5:
+				var v = move_and_slide(velocity)
+				if global_position.distance_to(patrol_location) < 5 or global_position.distance_to(patrol_location)>50:
 					patrol_location_reached = true
 					velocity = Vector2.ZERO
 					patrol_timer.start()
@@ -90,5 +90,6 @@ func _on_PatrolTimer_timeout():
 	var random_x = rand_range(-patrol_range, patrol_range)
 	var random_y = rand_range(-patrol_range, patrol_range)
 	patrol_location = Vector2(random_x,random_y) + origin
+	print(patrol_location)
 	patrol_location_reached = false
 	velocity = global_position.direction_to(patrol_location) * 100
