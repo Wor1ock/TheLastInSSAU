@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 
 signal state_changed(new_state)
+signal health_updated(health)
+signal killed()
 
 # Перечисление состояний: 
 # PATROL - патрулирование
@@ -13,6 +15,8 @@ enum State {
 
 onready var player_detection_zone = $PlayerDetectionZone
 onready var patrol_timer = $PatrolTimer
+onready var invulnerability_timer = $InvulnerabilityTimer
+onready var hp_label = $HPLabel
 
 # Переменные для ENGAGE
 var speed = 270
@@ -28,8 +32,13 @@ var patrol_location: Vector2 = Vector2.ZERO
 var velocity: Vector2 = Vector2.ZERO 
 var patrol_location_reached = false
 
+# Очки здоровья
+export(int) var max_health := 25
+onready var health := max_health setget  _set_health
+
 
 func _ready():
+	hp_label.text = str(health)
 	set_state(State.PATROL)
 
 
@@ -93,3 +102,30 @@ func _on_PatrolTimer_timeout():
 	print(patrol_location)
 	patrol_location_reached = false
 	velocity = global_position.direction_to(patrol_location) * 100
+
+# Вызывается при смерти персонажа
+func kill():
+	queue_free()
+
+# Получение урона
+func damage(amount):
+	if invulnerability_timer.is_stopped():
+		invulnerability_timer.start()
+		_set_health(health - amount)
+
+# Изменение здоровья
+func _set_health(value):
+	var prev_health := health
+	health = clamp(value, 0, max_health)
+	if health != prev_health:
+		emit_signal("health_updated", health)
+		if health == 0:
+			kill()
+			emit_signal("killed")
+
+func _on_HurtboxShape_area_entered(area):
+	damage(area.damage)
+
+
+func _on_Enemy_health_updated(health):
+	hp_label.text = str(health)

@@ -581,5 +581,6 @@ collision_mask = 8
 position = Vector2( 29, 0 )
 rotation = 6.28318
 shape = SubResource( 3 )
+disabled = true
 
 [editable path="AttackDirection/HitboxShape"]

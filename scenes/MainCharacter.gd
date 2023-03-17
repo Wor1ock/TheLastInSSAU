@@ -12,13 +12,16 @@ export var speed := 5
 var direction := Vector2.ZERO
 var state = MOVE
 
+var damage = 10
+
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 
 func _ready():
 	animationTree.active = true
-	$AttackDirection/HitboxShape/CollisionShape2D.disabled = true
+	$AttackDirection/HitboxShape.damage = damage
+#	$AttackDirection/HitboxShape/CollisionShape2D.disabled = true
 
 # Про анимирование всего этого добра можно почитать тут:
 # https://www.gdquest.com/tutorial/godot/2d/top-down-movement/
