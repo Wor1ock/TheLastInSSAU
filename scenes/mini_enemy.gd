@@ -5,7 +5,7 @@ onready var player_detection_zone = $PlayerDetectionZone
 
 
 # Переменные для ENGAGE
-var speed = 120
+var speed = 110
 var motion = Vector2.ZERO
 var player = null
 
@@ -22,7 +22,6 @@ func _on_PlayerDetectionZone_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
 		player = body
 		print("enter")
-
 
 
 func _on_HurtboxShape_area_entered(area):
