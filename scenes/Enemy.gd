@@ -16,7 +16,6 @@ enum State {
 onready var player_detection_zone = $PlayerDetectionZone
 onready var patrol_timer = $PatrolTimer
 onready var invulnerability_timer = $InvulnerabilityTimer
-onready var hp_label = $HPLabel
 
 # Переменные для ENGAGE
 var speed = 270
@@ -38,7 +37,6 @@ onready var health := max_health setget  _set_health
 
 
 func _ready():
-	hp_label.text = str(health)
 	set_state(State.PATROL)
 
 
@@ -128,4 +126,4 @@ func _on_HurtboxShape_area_entered(area):
 
 
 func _on_Enemy_health_updated(health):
-	hp_label.text = str(health)
+	pass

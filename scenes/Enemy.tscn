@@ -52,16 +52,8 @@ scale = Vector2( 2.09075, 2.09075 )
 shape = SubResource( 4 )
 
 [node name="InvulnerabilityTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.2
 one_shot = true
-
-[node name="HPLabel" type="Label" parent="."]
-margin_left = -24.0
-margin_top = 24.0
-margin_right = 10.0
-margin_bottom = 38.0
-rect_scale = Vector2( 1.36551, 1.96754 )
-align = 1
 
 [connection signal="health_updated" from="." to="." method="_on_Enemy_health_updated"]
 [connection signal="body_entered" from="PlayerDetectionZone" to="." method="_on_PlayerDetectionZone_body_entered"]
