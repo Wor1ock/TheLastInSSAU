@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://scenes/entity/EntityBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entity/player/Player.gd" type="Script" id=2]
@@ -7,6 +7,60 @@
 
 [sub_resource type="CapsuleShape2D" id=113]
 radius = 14.0
+
+[sub_resource type="Animation" id=117]
+resource_name = "AttackDown"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 36, 37, 38, 39 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "attack_animation_finished"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AttackDirection:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 90.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AttackDirection/HitboxShape/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 
 [sub_resource type="Animation" id=99]
 resource_name = "AttackLeft"
@@ -270,6 +324,21 @@ tracks/0/keys = {
 "values": [ 12, 13, 14, 15, 16, 17 ]
 }
 
+[sub_resource type="Animation" id=115]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 36 ]
+}
+
 [sub_resource type="Animation" id=108]
 resource_name = "RunDown"
 length = 0.6
@@ -350,6 +419,9 @@ animation = "AttackUp"
 [sub_resource type="AnimationNodeAnimation" id=95]
 animation = "AttackRight"
 
+[sub_resource type="AnimationNodeAnimation" id=116]
+animation = "AttackDown"
+
 [sub_resource type="AnimationNodeBlendSpace2D" id=96]
 blend_point_0/node = SubResource( 92 )
 blend_point_0/pos = Vector2( -1, 0 )
@@ -359,6 +431,8 @@ blend_point_2/node = SubResource( 94 )
 blend_point_2/pos = Vector2( 0, -1 )
 blend_point_3/node = SubResource( 95 )
 blend_point_3/pos = Vector2( 1, 0 )
+blend_point_4/node = SubResource( 116 )
+blend_point_4/pos = Vector2( 0, 1 )
 
 [sub_resource type="AnimationNodeAnimation" id=69]
 animation = "IdleDown"
@@ -445,14 +519,16 @@ scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 5 )
 hframes = 6
 vframes = 13
-frame = 66
+frame = 36
 region_rect = Rect2( 0, 20, 280, 610 )
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2( 0, -0.5 )
 shape = SubResource( 113 )
+disabled = true
 
 [node name="AnimationPlayer" parent="." index="2"]
+anims/AttackDown = SubResource( 117 )
 anims/AttackLeft = SubResource( 99 )
 anims/AttackRight = SubResource( 100 )
 anims/AttackUp = SubResource( 101 )
@@ -462,6 +538,7 @@ anims/IdleDown = SubResource( 104 )
 anims/IdleLeft = SubResource( 105 )
 anims/IdleRight = SubResource( 106 )
 anims/IdleUp = SubResource( 107 )
+anims/RESET = SubResource( 115 )
 anims/RunDown = SubResource( 108 )
 anims/RunLeft = SubResource( 109 )
 anims/RunRight = SubResource( 110 )
@@ -471,12 +548,12 @@ anims/RunUp = SubResource( 111 )
 tree_root = SubResource( 74 )
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource( 112 )
-parameters/Attack/blend_position = Vector2( 0, 0 )
-parameters/Idle/blend_position = Vector2( 0.00197756, 0 )
+parameters/Attack/blend_position = Vector2( -0.0866706, 0.257511 )
+parameters/Idle/blend_position = Vector2( 0.141662, 0.0128756 )
 parameters/Run/blend_position = Vector2( 0.0257087, -0.467811 )
 
 [node name="AttackDirection" type="Position2D" parent="." index="4"]
-rotation = 3.14159
+rotation = 1.5708
 
 [node name="HitboxShape" parent="AttackDirection" index="0" instance=ExtResource( 3 )]
 collision_mask = 8
