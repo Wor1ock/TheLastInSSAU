@@ -57,3 +57,8 @@ func attack_state():
 	
 func attack_animation_finished():
 	state = MOVE
+
+# Непосредственное нанесение урона
+func _on_HitboxShape_area_entered(body):
+	if body.has_method("hurtbox_take_damage"):
+		body.hurtbox_take_damage(damage)
