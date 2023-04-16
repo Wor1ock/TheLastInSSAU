@@ -7,7 +7,8 @@
 [ext_resource path="res://assets/player/player_animation.png" type="Texture" id=5]
 
 [sub_resource type="CapsuleShape2D" id=113]
-radius = 14.0
+radius = 5.0
+height = 14.0
 
 [sub_resource type="Animation" id=117]
 resource_name = "AttackDown"
@@ -528,7 +529,8 @@ frame = 36
 region_rect = Rect2( 0, 20, 280, 610 )
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( 0, -0.5 )
+position = Vector2( 0, 20 )
+rotation = 1.5708
 shape = SubResource( 113 )
 
 [node name="AnimationPlayer" parent="." index="2"]
