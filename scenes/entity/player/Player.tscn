@@ -578,7 +578,7 @@ shape = SubResource( 118 )
 
 [node name="Camera2D" type="Camera2D" parent="." index="6"]
 current = true
-zoom = Vector2( 0.5, 0.5 )
+zoom = Vector2( 0.75, 0.75 )
 
 [connection signal="area_entered" from="AttackDirection/HitboxShape" to="." method="_on_HitboxShape_area_entered"]
 
