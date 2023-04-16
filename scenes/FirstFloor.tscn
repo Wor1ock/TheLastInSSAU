@@ -344,7 +344,7 @@ points = PoolVector2Array( 64, 48.6653, 29.3617, 48.6653, 29.3617, 1.22141, 64, 
 15/shapes = [  ]
 15/z_index = 0
 
-[node name="FirstFloor" type="Node"]
+[node name="FirstFloor" type="YSort"]
 script = ExtResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
