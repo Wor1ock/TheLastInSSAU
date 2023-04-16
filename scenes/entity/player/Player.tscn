@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://scenes/entity/EntityBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entity/player/Player.gd" type="Script" id=2]
@@ -411,9 +411,6 @@ tracks/0/keys = {
 [sub_resource type="AnimationNodeAnimation" id=92]
 animation = "AttackLeft"
 
-[sub_resource type="AnimationNodeAnimation" id=93]
-animation = "AttackDown"
-
 [sub_resource type="AnimationNodeAnimation" id=94]
 animation = "AttackUp"
 
@@ -426,14 +423,15 @@ animation = "AttackDown"
 [sub_resource type="AnimationNodeBlendSpace2D" id=96]
 blend_point_0/node = SubResource( 92 )
 blend_point_0/pos = Vector2( -1, 0 )
-blend_point_1/node = SubResource( 93 )
-blend_point_1/pos = Vector2( 0, 1 )
-blend_point_2/node = SubResource( 94 )
-blend_point_2/pos = Vector2( 0, -1 )
-blend_point_3/node = SubResource( 95 )
-blend_point_3/pos = Vector2( 1, 0 )
-blend_point_4/node = SubResource( 116 )
-blend_point_4/pos = Vector2( 0, 1 )
+blend_point_1/node = SubResource( 94 )
+blend_point_1/pos = Vector2( 0, -1.1 )
+blend_point_2/node = SubResource( 95 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 116 )
+blend_point_3/pos = Vector2( 0, 1.1 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id=69]
 animation = "IdleDown"
@@ -449,13 +447,15 @@ animation = "IdleLeft"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id=72]
 blend_point_0/node = SubResource( 69 )
-blend_point_0/pos = Vector2( 0, 1 )
+blend_point_0/pos = Vector2( 0, 1.1 )
 blend_point_1/node = SubResource( 70 )
-blend_point_1/pos = Vector2( 0, -1 )
+blend_point_1/pos = Vector2( 0, -1.1 )
 blend_point_2/node = SubResource( 71 )
 blend_point_2/pos = Vector2( 1, 0 )
 blend_point_3/node = SubResource( 84 )
 blend_point_3/pos = Vector2( -1, 0 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id=73]
@@ -477,11 +477,13 @@ animation = "RunLeft"
 blend_point_0/node = SubResource( 76 )
 blend_point_0/pos = Vector2( 1, 0 )
 blend_point_1/node = SubResource( 77 )
-blend_point_1/pos = Vector2( 0, 1 )
+blend_point_1/pos = Vector2( 0, 1.1 )
 blend_point_2/node = SubResource( 78 )
-blend_point_2/pos = Vector2( 0, -1 )
+blend_point_2/pos = Vector2( 0, -1.1 )
 blend_point_3/node = SubResource( 85 )
 blend_point_3/pos = Vector2( -1, 0 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
 blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=80]
@@ -494,16 +496,16 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachine" id=74]
 states/Attack/node = SubResource( 96 )
-states/Attack/position = Vector2( 239.5, 178 )
+states/Attack/position = Vector2( 368.5, 224 )
 states/Idle/node = SubResource( 72 )
 states/Idle/position = Vector2( 368.5, 87.5 )
 states/RESET/node = SubResource( 73 )
-states/RESET/position = Vector2( 545, 88.25 )
+states/RESET/position = Vector2( 609, 87.5 )
 states/Run/node = SubResource( 79 )
-states/Run/position = Vector2( 454.5, 170.5 )
+states/Run/position = Vector2( 152.5, 87.5 )
 transitions = [ "Idle", "Run", SubResource( 80 ), "Run", "Idle", SubResource( 81 ), "Idle", "Attack", SubResource( 97 ), "Attack", "Idle", SubResource( 98 ) ]
 start_node = "Idle"
-graph_offset = Vector2( 0, 47.5325 )
+graph_offset = Vector2( 0, -44.4675 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=112]
 
@@ -551,10 +553,11 @@ anims/RunUp = SubResource( 111 )
 [node name="AnimationTree" type="AnimationTree" parent="." index="3"]
 tree_root = SubResource( 74 )
 anim_player = NodePath("../AnimationPlayer")
+active = true
 parameters/playback = SubResource( 112 )
-parameters/Attack/blend_position = Vector2( -0.0866706, 0.257511 )
+parameters/Attack/blend_position = Vector2( 0.324226, 0.522572 )
 parameters/Idle/blend_position = Vector2( 0.141662, 0.0128756 )
-parameters/Run/blend_position = Vector2( 0.0257087, -0.467811 )
+parameters/Run/blend_position = Vector2( -0.00182152, -0.0144358 )
 
 [node name="AttackDirection" type="Position2D" parent="." index="4"]
 
