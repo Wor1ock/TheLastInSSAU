@@ -506,7 +506,7 @@ states/Run/node = SubResource( 79 )
 states/Run/position = Vector2( 152.5, 87.5 )
 transitions = [ "Idle", "Run", SubResource( 80 ), "Run", "Idle", SubResource( 81 ), "Idle", "Attack", SubResource( 97 ), "Attack", "Idle", SubResource( 98 ) ]
 start_node = "Idle"
-graph_offset = Vector2( 0, -44.4675 )
+graph_offset = Vector2( 20, 72.5325 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=112]
 
@@ -529,7 +529,7 @@ scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 5 )
 hframes = 6
 vframes = 13
-frame = 36
+frame = 7
 region_rect = Rect2( 0, 20, 280, 610 )
 
 [node name="CollisionShape2D" parent="." index="1"]
@@ -558,12 +558,11 @@ tree_root = SubResource( 74 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 112 )
-parameters/Attack/blend_position = Vector2( 0.324226, 0.522572 )
-parameters/Idle/blend_position = Vector2( 0.141662, 0.0128756 )
-parameters/Run/blend_position = Vector2( -0.00182152, -0.0144358 )
+parameters/Attack/blend_position = Vector2( 0.31028, 0 )
+parameters/Idle/blend_position = Vector2( 0.145794, 0 )
+parameters/Run/blend_position = Vector2( 0.011215, 0 )
 
 [node name="AttackDirection" type="Position2D" parent="." index="4"]
-rotation = 1.5708
 
 [node name="HitboxShape" parent="AttackDirection" index="0" instance=ExtResource( 3 )]
 collision_mask = 8
