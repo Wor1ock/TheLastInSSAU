@@ -529,7 +529,7 @@ scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 5 )
 hframes = 6
 vframes = 13
-frame = 7
+frame = 36
 region_rect = Rect2( 0, 20, 280, 610 )
 
 [node name="CollisionShape2D" parent="." index="1"]
