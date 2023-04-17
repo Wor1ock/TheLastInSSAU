@@ -14,11 +14,17 @@ var state = MOVE
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
+onready var heartsBar = $HUD/HeartsBar
+
 
 func _ready():
 	animationTree.active = true
 	$AttackDirection/HitboxShape.damage = damage
-#	$AttackDirection/HitboxShape/CollisionShape2D.disabled = true
+	
+	connect("health_updated", heartsBar, "_set_half_hearts")
+	connect("max_health_updated", heartsBar, "_set_max_half_hearts")
+	heartsBar.max_half_hearts = max_health
+	heartsBar.half_hearts = health
 
 # Про анимирование всего этого добра можно почитать тут:
 # https://www.gdquest.com/tutorial/godot/2d/top-down-movement/
