@@ -7,7 +7,14 @@
 [node name="EnemyBase" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="HurtboxShape" parent="." index="3" instance=ExtResource( 3 )]
+[node name="PlayerDetectionZone" type="Area2D" parent="." index="3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
+
+[node name="HurtboxShape" parent="." index="4" instance=ExtResource( 3 )]
 collision_layer = 8
+
+[connection signal="body_entered" from="PlayerDetectionZone" to="." method="_on_PlayerDetectionZone_body_entered"]
+[connection signal="body_exited" from="PlayerDetectionZone" to="." method="_on_PlayerDetectionZone_body_exited"]
 
 [editable path="HurtboxShape"]

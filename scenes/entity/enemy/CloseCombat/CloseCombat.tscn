@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/entity/enemy/CloseCombat/CloseCombat.gd" type="Script" id=1]
+[ext_resource path="res://scenes/entity/enemy/EnemyBase.tscn" type="PackedScene" id=2]
+
+[node name="CloseCombat" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+speed = 180
+
+[node name="Position2D" type="Position2D" parent="." index="5"]
+
+[node name="HitboxShape" type="Area2D" parent="Position2D" index="0"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Position2D/HitboxShape" index="0"]
+
+[node name="AttackTimer" type="Timer" parent="." index="6"]
+wait_time = 2.0
+
+[connection signal="area_entered" from="Position2D/HitboxShape" to="." method="_on_HitboxShape_area_entered"]
+[connection signal="area_exited" from="Position2D/HitboxShape" to="." method="_on_HitboxShape_area_exited"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]
+
+[editable path="HurtboxShape"]
