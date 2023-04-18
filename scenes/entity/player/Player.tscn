@@ -525,6 +525,8 @@ script = ExtResource( 2 )
 max_health = 6
 health = 6
 dash_speed = 900
+dash_duration = 0.2
+dash_cooldown = 0.5
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2( 0, -20 )

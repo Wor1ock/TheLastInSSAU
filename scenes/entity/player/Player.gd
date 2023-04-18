@@ -8,10 +8,11 @@ enum {
 
 
 var state = MOVE
-var dash_duration := 0.2
 var prev_velocity := Vector2.RIGHT
 
 export(int) var dash_speed = 900
+export(float) var dash_duration = 0.2
+export(float) var dash_cooldown = 0.5
 
 
 onready var animationPlayer = $AnimationPlayer
@@ -62,8 +63,8 @@ func movement_control():
 	if Input.is_action_just_pressed("attack"):
 		state = ATTACK
 	elif Input.is_action_just_pressed("dash"):
-		state = DASH
-		dash.start_dash(dash_duration)
+		if dash.start_dash(dash_duration, dash_cooldown):
+			state = DASH
 
 # Функция для контроля аттаки
 func attack_state():
