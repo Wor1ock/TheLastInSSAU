@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/entity/enemy/Long-RangeCombat/Spawner.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://scenes/entity/enemy/CloseCombat/MiniEnemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/entity/enemy/EnemyBase.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 31, 30.5 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 498.944
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 23, 19.5 )
+
+[node name="Spawner" instance=ExtResource( 4 )]
+script = ExtResource( 1 )
+speed = 150
+mini_enemy = ExtResource( 3 )
+
+[node name="Sprite" parent="." index="0"]
+modulate = Color( 0.854902, 0.164706, 1, 1 )
+rotation = 1.5708
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 0, -0.5 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D" parent="HurtboxShape" index="0"]
+position = Vector2( 0, -0.5 )
+shape = SubResource( 3 )
+
+[node name="Position2D" type="Position2D" parent="." index="5"]
+position = Vector2( -76, 0 )
+
+[node name="Position2D2" type="Position2D" parent="." index="6"]
+position = Vector2( 73, -1 )
+
+[connection signal="died" from="." to="." method="_on_Spawner_died"]
+
+[editable path="HurtboxShape"]
