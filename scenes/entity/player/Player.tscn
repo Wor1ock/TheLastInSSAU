@@ -516,8 +516,12 @@ height = 30.0
 radius = 13.0
 
 [node name="Player" instance=ExtResource( 1 )]
+position = Vector2( 0, -20 )
 collision_layer = 2
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2( 0, -20 )
