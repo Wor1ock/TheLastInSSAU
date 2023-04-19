@@ -527,6 +527,7 @@ health = 6
 dash_speed = 900
 dash_duration = 0.2
 dash_cooldown = 0.5
+ghost_cooldown = 0.03
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2( 0, -20 )
@@ -591,6 +592,7 @@ zoom = Vector2( 0.75, 0.75 )
 [node name="HUD" parent="." index="7" instance=ExtResource( 6 )]
 
 [node name="Dash" parent="." index="8" instance=ExtResource( 7 )]
+position = Vector2( 0, -20 )
 
 [connection signal="health_updated" from="." to="HUD" method="set_HP"]
 [connection signal="max_health_updated" from="." to="HUD" method="set_max_HP"]

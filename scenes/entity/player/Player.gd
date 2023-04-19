@@ -10,15 +10,18 @@ enum {
 var state = MOVE
 var prev_velocity := Vector2.RIGHT
 
-export(int) var dash_speed = 900
-export(float) var dash_duration = 0.2
-export(float) var dash_cooldown = 0.5
+export(int) var dash_speed := 900
+export(float) var dash_duration := 0.2
+export(float) var dash_cooldown := 0.5
+export(float) var ghost_cooldown := 0.03
 
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
+onready var sprite = $Sprite
 onready var dash = $Dash
+onready var hurtbox = $HurtboxShape
 
 
 func _ready():
@@ -58,7 +61,9 @@ func movement_control():
 	if Input.is_action_just_pressed("attack"):
 		state = ATTACK
 	elif Input.is_action_just_pressed("dash"):
-		if dash.start_dash(dash_duration, dash_cooldown):
+		print("ghost_cd = " + str(ghost_cooldown))
+		if dash.start_dash(dash_duration, dash_cooldown, ghost_cooldown, sprite):
+			hurtbox.set_invulnerability(true)
 			state = DASH
 
 # Функция для контроля аттаки
@@ -72,6 +77,7 @@ func dash_state():
 	move_and_slide(prev_velocity * dash_speed)
 
 func dash_finished():
+	hurtbox.set_invulnerability(false)
 	state = MOVE
 
 # Непосредственное нанесение урона
