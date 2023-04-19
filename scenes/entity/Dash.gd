@@ -58,5 +58,4 @@ func _on_CooldownTimer_timeout():
 
 
 func _on_GhostTimer_timeout():
-	print(ghostTimer.wait_time)
 	instance_ghost()
