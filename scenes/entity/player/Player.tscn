@@ -592,6 +592,8 @@ zoom = Vector2( 0.75, 0.75 )
 
 [node name="Dash" parent="." index="8" instance=ExtResource( 7 )]
 
+[connection signal="health_updated" from="." to="HUD" method="set_HP"]
+[connection signal="max_health_updated" from="." to="HUD" method="set_max_HP"]
 [connection signal="area_entered" from="AttackDirection/HitboxShape" to="." method="_on_HitboxShape_area_entered"]
 [connection signal="dash_finished" from="Dash" to="." method="dash_finished"]
 

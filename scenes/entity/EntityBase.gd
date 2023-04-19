@@ -33,8 +33,7 @@ func die():
 func _set_health(value):
 	var prev_health := health
 	health = clamp(value, 0, max_health)
-	if health != prev_health:
-		emit_signal("health_updated", health)
+	emit_signal("health_updated", health)
 	if health <= 0:
 		emit_signal("no_health")
 
