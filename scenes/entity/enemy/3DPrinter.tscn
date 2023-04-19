@@ -1,0 +1,59 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/entity/enemy/3DPrinter.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://scenes/entity/enemy/CloseCombat/MiniEnemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/entity/enemy/Long-RangeCombat/Spawner.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/entity/enemy/CloseCombat/BigEnemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/entity/enemy/CloseCombat/LaserEnemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/entity/enemy/EnemyBase.tscn" type="PackedScene" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 31, 46 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 24.5, 36.5 )
+
+[node name="3DPrinter" instance=ExtResource( 7 )]
+script = ExtResource( 1 )
+speed = 0
+max_health = 100
+health = 100
+mini_enemy = ExtResource( 3 )
+laser_enemy = ExtResource( 6 )
+big_enemy = ExtResource( 5 )
+spawner = ExtResource( 4 )
+
+[node name="Sprite" parent="." index="0"]
+modulate = Color( 1, 0.960784, 0, 1 )
+scale = Vector2( 1, 1.5 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="HurtboxShape" index="0"]
+position = Vector2( -0.5, 0.5 )
+shape = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="." index="5"]
+wait_time = 6.0
+
+[node name="pos" type="Position2D" parent="." index="6"]
+position = Vector2( -90, 48 )
+
+[node name="pos2" type="Position2D" parent="." index="7"]
+position = Vector2( -93, -45 )
+
+[node name="pos3" type="Position2D" parent="." index="8"]
+position = Vector2( -100, 5 )
+
+[node name="pos4" type="Position2D" parent="." index="9"]
+position = Vector2( -69, 85 )
+
+[node name="pos5" type="Position2D" parent="." index="10"]
+position = Vector2( -27, 102 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+[editable path="HurtboxShape"]
