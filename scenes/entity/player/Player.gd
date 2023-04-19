@@ -61,7 +61,6 @@ func movement_control():
 	if Input.is_action_just_pressed("attack"):
 		state = ATTACK
 	elif Input.is_action_just_pressed("dash"):
-		print("ghost_cd = " + str(ghost_cooldown))
 		if dash.start_dash(dash_duration, dash_cooldown, ghost_cooldown, sprite):
 			hurtbox.set_invulnerability(true)
 			state = DASH

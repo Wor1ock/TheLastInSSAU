@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="The Last In SSAU"
-run/main_scene="res://scenes/FirstFloor.tscn"
+run/main_scene="res://scenes/maps/FirstFloor.tscn"
 config/icon="res://icon.png"
 
 [display]
