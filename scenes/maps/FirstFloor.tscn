@@ -2,12 +2,13 @@
 
 [ext_resource path="res://scenes/entity/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/table2.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/background/walls.png" type="Texture" id=3]
+[ext_resource path="res://assets/background/walls1.png" type="Texture" id=3]
 [ext_resource path="res://assets/background/tileset.png" type="Texture" id=4]
 [ext_resource path="res://assets/background/SamaraUNIV.png" type="Texture" id=6]
 [ext_resource path="res://scenes/column.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/table.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/toilet.tscn" type="PackedScene" id=9]
+
 
 [sub_resource type="ConvexPolygonShape2D" id=34]
 points = PoolVector2Array( 32, 64, 0, 64, 0, 32, 32, 32 )
