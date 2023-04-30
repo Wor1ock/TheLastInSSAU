@@ -27,11 +27,18 @@ onready var hurtbox = $HurtboxShape
 func _ready():
 	animationTree.active = true
 	
-	$AttackDirection/HitboxShape.damage = damage
+	self.damage = damage
 	
 	# Нужно для инициализации HeartsBar
 	self.health = health
 	self.max_health = max_health
+	
+	# Записываем статы в Globals
+	# Либо копируем их оттуда при переходе на другой уровень
+#	if Globals.player != null:
+#		pass
+	
+	
 
 func _physics_process(_delta):
 	match state:
