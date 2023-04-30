@@ -24,6 +24,10 @@ config/name="The Last In SSAU"
 run/main_scene="res://scenes/maps/SecondFloor.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Run="*res://scenes/Run.tscn"
+
 [display]
 
 window/size/width=1280
