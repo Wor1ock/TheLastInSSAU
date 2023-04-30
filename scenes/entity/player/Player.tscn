@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://scenes/entity/EntityBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entity/player/Player.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/player/player_animation.png" type="Texture" id=5]
 [ext_resource path="res://scenes/UI/HUD.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/entity/Dash.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/player/light.png" type="Texture" id=8]
 
 [sub_resource type="CapsuleShape2D" id=113]
 radius = 5.0
@@ -594,6 +595,12 @@ zoom = Vector2( 0.75, 0.75 )
 
 [node name="Dash" parent="." index="8" instance=ExtResource( 7 )]
 position = Vector2( 0, -20 )
+
+[node name="Light2D" type="Light2D" parent="." index="9"]
+texture = ExtResource( 8 )
+color = Color( 0.733333, 0.968627, 0.964706, 1 )
+energy = 0.8
+shadow_enabled = true
 
 [connection signal="health_updated" from="." to="HUD" method="set_HP"]
 [connection signal="max_health_updated" from="." to="HUD" method="set_max_HP"]
