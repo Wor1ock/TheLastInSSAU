@@ -35,10 +35,17 @@ func _ready():
 	
 	# Записываем статы в Globals
 	# Либо копируем их оттуда при переходе на другой уровень
-#	if Globals.player != null:
-#		pass
+	if Globals.has_player_stats:
+		Globals.get_player_stats_to(self)
+		animationTree.set("parameters/Idle/blend_position", prev_velocity)
+		animationTree.set("parameters/Run/blend_position", prev_velocity)
+		animationTree.set("parameters/Attack/blend_position", prev_velocity)
+	else:
+		Globals.set_player_stats_from(self)
 	
-	
+	# После перехода с предыдущей сцены меняем положение Player
+	if Globals.has_new_player_position:
+		Globals.get_new_player_pos_to(self)
 
 func _physics_process(_delta):
 	match state:

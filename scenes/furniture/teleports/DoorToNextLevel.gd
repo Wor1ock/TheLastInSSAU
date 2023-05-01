@@ -17,6 +17,6 @@ func set_file_path(p_value):
 
 func _on_DoorToNextLevel_Player_entered(body):
 	if body.is_in_group("player"):
-		body.position.x = new_player_x
-		body.position.y = new_player_y
+		Globals.set_player_stats_from(body)
+		Globals.set_new_player_pos(Vector2(new_player_x, new_player_y))
 		get_tree().change_scene(file_path)
