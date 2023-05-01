@@ -3,6 +3,7 @@ extends KinematicBody2D
 
 signal health_updated(value)
 signal max_health_updated(value)
+signal damage_updated(value)
 signal no_health()
 signal died()
 
@@ -10,7 +11,7 @@ signal died()
 export(int) var speed := 300
 export(int) var max_health := 10 setget _set_max_health
 export(int) var health := max_health setget _set_health
-export(int) var damage = 5
+export(int) var damage = 5 setget _set_damage
 
 
 var velocity := Vector2.ZERO
@@ -31,7 +32,6 @@ func die():
 
 # Изменение здоровья
 func _set_health(value):
-	var prev_health := health
 	health = clamp(value, 0, max_health)
 	emit_signal("health_updated", health)
 	if health <= 0:
@@ -42,3 +42,8 @@ func _set_max_health(value):
 	max_health = max(1, value)
 	self.health = min(health, max_health)
 	emit_signal("max_health_updated", max_health)
+
+# Изменение наносимого урона
+func _set_damage(value):
+	damage = value
+	emit_signal("damage_updated", damage)

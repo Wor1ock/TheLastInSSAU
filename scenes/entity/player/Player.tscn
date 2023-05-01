@@ -602,6 +602,7 @@ color = Color( 0.733333, 0.968627, 0.964706, 1 )
 energy = 0.8
 shadow_enabled = true
 
+[connection signal="damage_updated" from="." to="AttackDirection/HitboxShape" method="set_damage"]
 [connection signal="health_updated" from="." to="HUD" method="set_HP"]
 [connection signal="max_health_updated" from="." to="HUD" method="set_max_HP"]
 [connection signal="area_entered" from="AttackDirection/HitboxShape" to="." method="_on_HitboxShape_area_entered"]
