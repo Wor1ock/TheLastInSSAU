@@ -1,9 +1,8 @@
-[gd_scene load_steps=74 format=2]
+[gd_scene load_steps=73 format=2]
 
 [ext_resource path="res://assets/background/walls2_2.png" type="Texture" id=1]
 [ext_resource path="res://assets/background/walls2.png" type="Texture" id=2]
 [ext_resource path="res://assets/background/tileset.png" type="Texture" id=3]
-[ext_resource path="res://scenes/entity/player/Player.tscn" type="PackedScene" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0.0825958, 64, 0.0825958, 51.829, 64, 51.829 )
@@ -700,10 +699,6 @@ points = PoolVector2Array( 16, 32, 0, 32, 0, 16, 16, 16 )
 [node name="SecondFloor" type="Node"]
 
 [node name="YSort" type="YSort" parent="."]
-
-[node name="Player" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 608, -480 )
-z_index = 1
 
 [node name="exposition" type="TileMap" parent="YSort"]
 tile_set = SubResource( 3 )

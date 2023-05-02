@@ -1,14 +1,14 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://scenes/entity/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/table2.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/background/walls1.png" type="Texture" id=3]
 [ext_resource path="res://assets/background/tileset.png" type="Texture" id=4]
+[ext_resource path="res://scenes/furniture/teleports/DoorToNextLevel.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/background/SamaraUNIV.png" type="Texture" id=6]
 [ext_resource path="res://scenes/column.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/table.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/toilet.tscn" type="PackedScene" id=9]
-
 
 [sub_resource type="ConvexPolygonShape2D" id=34]
 points = PoolVector2Array( 32, 64, 0, 64, 0, 32, 32, 32 )
@@ -244,6 +244,9 @@ points = PoolVector2Array( 192, 244.75, 176.982, 244.75, 176.982, 20.5025, 192, 
 } ]
 1/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=53]
+extents = Vector2( 249, 10 )
+
 [node name="FirstFloor" type="Node2D"]
 
 [node name="SamUniversity" type="Sprite" parent="."]
@@ -253,7 +256,7 @@ texture = ExtResource( 6 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 672, 264 )
+position = Vector2( 608, -320 )
 
 [node name="walls" type="TileMap" parent="YSort"]
 z_index = -1
@@ -343,3 +346,16 @@ position = Vector2( -1248, -608 )
 
 [node name="toilet4" parent="YSort/toilets" instance=ExtResource( 9 )]
 position = Vector2( -1120, -608 )
+
+[node name="portal" type="Area2D" parent="."]
+position = Vector2( 512, -448 )
+
+[node name="doorto_second" parent="portal" instance=ExtResource( 5 )]
+position = Vector2( 192, 7 )
+new_player_x = 616.0
+new_player_y = -432.0
+file_path = "res://scenes/maps/SecondFloor.tscn"
+
+[node name="door" type="CollisionShape2D" parent="portal/doorto_second"]
+position = Vector2( 0, 1 )
+shape = SubResource( 53 )
