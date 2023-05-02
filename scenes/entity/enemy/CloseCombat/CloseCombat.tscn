@@ -8,6 +8,7 @@ script = ExtResource( 1 )
 speed = 180
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="3"]
+anim_player = NodePath("../AnimationPlayer")
 
 [node name="Position2D" type="Position2D" parent="." index="6"]
 
