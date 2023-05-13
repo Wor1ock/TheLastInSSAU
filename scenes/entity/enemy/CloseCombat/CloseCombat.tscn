@@ -7,7 +7,10 @@
 script = ExtResource( 1 )
 speed = 180
 
-[node name="Position2D" type="Position2D" parent="." index="5"]
+[node name="AnimationTree" type="AnimationTree" parent="." index="3"]
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="Position2D" type="Position2D" parent="." index="6"]
 
 [node name="HitboxShape" type="Area2D" parent="Position2D" index="0"]
 collision_layer = 0
@@ -15,7 +18,7 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Position2D/HitboxShape" index="0"]
 
-[node name="AttackTimer" type="Timer" parent="." index="6"]
+[node name="AttackTimer" type="Timer" parent="." index="7"]
 wait_time = 2.0
 
 [connection signal="area_entered" from="Position2D/HitboxShape" to="." method="_on_HitboxShape_area_entered"]

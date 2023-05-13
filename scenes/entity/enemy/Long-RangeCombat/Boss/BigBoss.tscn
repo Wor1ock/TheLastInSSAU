@@ -1,0 +1,97 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://scenes/entity/enemy/Long-RangeCombat/Boss/BigBoss.gd" type="Script" id=1]
+[ext_resource path="res://assets/enemies/turret_BASE.png" type="Texture" id=2]
+[ext_resource path="res://assets/enemies/turret_FACE.png" type="Texture" id=3]
+[ext_resource path="res://scenes/entity/enemy/Long-RangeCombat/Boss/Bullet.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/entity/enemy/EnemyBase.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/entity/enemy/Long-RangeCombat/Spawner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/entity/enemy/CloseCombat/MiniEnemy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/entity/enemy/CloseCombat/LaserEnemy.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/entity/enemy/CloseCombat/BigEnemy.tscn" type="PackedScene" id=9]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 13.5, 13.5 )
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 539.69
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 12, 13 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 201.01
+
+[node name="BigBoss" instance=ExtResource( 5 )]
+script = ExtResource( 1 )
+speed = 50
+max_health = 100
+health = 30
+damage = 360
+BULLET = ExtResource( 4 )
+mini_enemy = ExtResource( 7 )
+laser_enemy = ExtResource( 8 )
+big_enemy = ExtResource( 9 )
+spawner = ExtResource( 6 )
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 0.5, 0.5 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="HurtboxShape" index="0"]
+shape = SubResource( 3 )
+
+[node name="GunSprite" type="Sprite" parent="." index="5"]
+light_mask = 0
+texture = ExtResource( 3 )
+vframes = 10
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="6"]
+enabled = true
+cast_to = Vector2( 250, 0 )
+collision_mask = 4
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="ReloadTimer" type="Timer" parent="RayCast2D" index="0"]
+wait_time = 0.5
+one_shot = true
+
+[node name="Timer" type="Timer" parent="." index="7"]
+wait_time = 2.0
+autostart = true
+
+[node name="pos" type="Position2D" parent="." index="8"]
+position = Vector2( 0, 41 )
+
+[node name="pos2" type="Position2D" parent="." index="9"]
+position = Vector2( 0, -44 )
+
+[node name="pos3" type="Position2D" parent="." index="10"]
+position = Vector2( 52, 1 )
+
+[node name="pos4" type="Position2D" parent="." index="11"]
+position = Vector2( -46, 1 )
+
+[node name="SpawnTimer" type="Timer" parent="." index="12"]
+wait_time = 7.0
+autostart = true
+
+[node name="ShootingZone" type="Area2D" parent="." index="13"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShootingZone" index="0"]
+shape = SubResource( 2 )
+
+[connection signal="timeout" from="RayCast2D/ReloadTimer" to="." method="_on_ReloadTimer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
+[connection signal="body_entered" from="ShootingZone" to="." method="_on_ShootingZone_body_entered"]
+[connection signal="body_exited" from="ShootingZone" to="." method="_on_ShootingZone_body_exited"]
+
+[editable path="HurtboxShape"]
