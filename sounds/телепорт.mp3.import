@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/телепорт.mp3-b277fe3a85f0463afc744bdb8d2e5ea9.mp3str"
+
+[deps]
+
+source_file="res://sounds/телепорт.mp3"
+dest_files=[ "res://.import/телепорт.mp3-b277fe3a85f0463afc744bdb8d2e5ea9.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

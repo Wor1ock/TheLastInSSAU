@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/кия.mp3-ca5ca579a6cd4fceac3be030be6f89ca.mp3str"
+
+[deps]
+
+source_file="res://sounds/кия.mp3"
+dest_files=[ "res://.import/кия.mp3-ca5ca579a6cd4fceac3be030be6f89ca.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

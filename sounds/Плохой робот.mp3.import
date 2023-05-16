@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Плохой робот.mp3-4292b8a5c05939e2e5c8bbe6daf8f588.mp3str"
+
+[deps]
+
+source_file="res://sounds/Плохой робот.mp3"
+dest_files=[ "res://.import/Плохой робот.mp3-4292b8a5c05939e2e5c8bbe6daf8f588.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
