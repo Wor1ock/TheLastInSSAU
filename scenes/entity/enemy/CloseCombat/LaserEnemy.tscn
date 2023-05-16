@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://scenes/entity/enemy/CloseCombat/LaserEnemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/enemies/laser.png" type="Texture" id=2]
@@ -7,6 +7,38 @@
 [sub_resource type="CapsuleShape2D" id=5]
 radius = 30.0
 height = 0.0
+
+[sub_resource type="Animation" id=11]
+resource_name = "BackAttack"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 48, 49, 50 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "FrontAttack"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 42, 43, 44 ]
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "IdleBack"
@@ -42,6 +74,22 @@ tracks/0/keys = {
 "values": [ 12, 13, 14, 15, 16, 17 ]
 }
 
+[sub_resource type="Animation" id=13]
+resource_name = "LeftAttack"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 36, 37, 38 ]
+}
+
 [sub_resource type="Animation" id=8]
 resource_name = "LeftIdle"
 length = 0.6
@@ -74,6 +122,22 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
+[sub_resource type="Animation" id=14]
+resource_name = "RightAttack"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 30, 31, 32 ]
+}
+
 [sub_resource type="Animation" id=10]
 resource_name = "RightIdle"
 length = 0.6
@@ -91,27 +155,65 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5 ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=11]
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "LeftAttack"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "FrontAttack"
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "BackAttack"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "RightAttack"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=19]
+blend_point_0/node = SubResource( 15 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 16 )
+blend_point_1/pos = Vector2( 0, 1 )
+blend_point_2/node = SubResource( 17 )
+blend_point_2/pos = Vector2( 0, -1 )
+blend_point_3/node = SubResource( 18 )
+blend_point_3/pos = Vector2( 1, 0 )
+
+[sub_resource type="AnimationNodeAnimation" id=20]
 animation = "LeftIdle"
 
-[sub_resource type="AnimationNodeAnimation" id=12]
-animation = "IdleFront"
-
-[sub_resource type="AnimationNodeAnimation" id=13]
-animation = "IdleBack"
-
-[sub_resource type="AnimationNodeAnimation" id=14]
+[sub_resource type="AnimationNodeAnimation" id=21]
 animation = "RightIdle"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=15]
-blend_point_0/node = SubResource( 11 )
+[sub_resource type="AnimationNodeAnimation" id=22]
+animation = "IdleBack"
+
+[sub_resource type="AnimationNodeAnimation" id=23]
+animation = "IdleFront"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=24]
+blend_point_0/node = SubResource( 20 )
 blend_point_0/pos = Vector2( -1, 0 )
-blend_point_1/node = SubResource( 12 )
-blend_point_1/pos = Vector2( 0, 1 )
-blend_point_2/node = SubResource( 13 )
+blend_point_1/node = SubResource( 21 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 22 )
 blend_point_2/pos = Vector2( 0, -1 )
-blend_point_3/node = SubResource( 14 )
-blend_point_3/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 23 )
+blend_point_3/pos = Vector2( 0, 1 )
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=26]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachine" id=27]
+states/Attack/node = SubResource( 19 )
+states/Attack/position = Vector2( 352, 119.5 )
+states/Idle/node = SubResource( 24 )
+states/Idle/position = Vector2( 97, 83.5 )
+transitions = [ "Idle", "Attack", SubResource( 25 ), "Attack", "Idle", SubResource( 26 ) ]
+start_node = "Idle"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=28]
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 250.282
@@ -120,14 +222,14 @@ radius = 250.282
 extents = Vector2( 22.5, 25 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 71, 5 )
+extents = Vector2( 9, 6.5 )
 
 [node name="LaserEnemy" groups=["laser"] instance=ExtResource( 3 )]
 script = ExtResource( 1 )
 damage = 1
 
 [node name="Sprite" parent="." index="0"]
-position = Vector2( -28, 2 )
+position = Vector2( -2, 3 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
 hframes = 6
@@ -138,16 +240,21 @@ position = Vector2( 0, -0.5 )
 shape = SubResource( 5 )
 
 [node name="AnimationPlayer" parent="." index="2"]
+anims/BackAttack = SubResource( 11 )
+anims/FrontAttack = SubResource( 12 )
 anims/IdleBack = SubResource( 6 )
 anims/IdleFront = SubResource( 7 )
+anims/LeftAttack = SubResource( 13 )
 anims/LeftIdle = SubResource( 8 )
 anims/RESET = SubResource( 9 )
+anims/RightAttack = SubResource( 14 )
 anims/RightIdle = SubResource( 10 )
 
 [node name="AnimationTree" parent="." index="3"]
-tree_root = SubResource( 15 )
-anim_player = NodePath("../AnimationPlayer")
-parameters/blend_position = Vector2( 0, 0 )
+tree_root = SubResource( 27 )
+parameters/playback = SubResource( 28 )
+parameters/Attack/blend_position = Vector2( 0, 0 )
+parameters/Idle/blend_position = Vector2( 0, 0 )
 
 [node name="PlayerDetectionZone" parent="." index="4"]
 visible = false
@@ -158,18 +265,13 @@ shape = SubResource( 2 )
 [node name="Timer" type="Timer" parent="." index="5"]
 wait_time = 2.0
 
-[node name="HurtboxShape" parent="." index="6"]
-visible = false
-
 [node name="CollisionShape2D" parent="HurtboxShape" index="0"]
+visible = false
 position = Vector2( 0.5, -1 )
 shape = SubResource( 3 )
 
-[node name="Position2D" parent="." index="7"]
-visible = false
-
 [node name="CollisionShape2D" parent="Position2D/HitboxShape" index="0"]
-position = Vector2( 103, 0 )
+position = Vector2( 39, 0 )
 shape = SubResource( 4 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
