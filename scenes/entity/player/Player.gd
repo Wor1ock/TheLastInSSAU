@@ -73,10 +73,17 @@ func movement_control():
 	velocity = move_and_slide(velocity * speed)
 	
 	if Input.is_action_just_pressed("attack"):
+		var rand_hit = floor(rand_range(0,2))
+		match str(rand_hit):
+			"0":
+				Globals.play_sound("res://sounds/кия.mp3")
+			"1":
+				Globals.play_sound("res://sounds/Получаай.mp3")
 		state = ATTACK
 	elif Input.is_action_just_pressed("dash"):
 		if dash.start_dash(dash_duration, dash_cooldown, ghost_cooldown, sprite):
 			hurtbox.set_invulnerability(true)
+			Globals.play_sound("res://sounds/уворот.mp3")
 			state = DASH
 
 # Функция для контроля аттаки
@@ -96,4 +103,5 @@ func dash_finished():
 # Непосредственное нанесение урона
 func _on_HitboxShape_area_entered(body):
 	if body.has_method("hurtbox_take_damage"):
+		Globals.play_sound("res://sounds/ударпо_роботу.mp3")
 		body.hurtbox_take_damage(damage)
