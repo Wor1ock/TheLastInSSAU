@@ -1,0 +1,45 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1684255947.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1684255947.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Приветствую тебя, мой юный друг. Меня зовут Медяков Андрей Васильевич. "
+		},
+		{
+			"character": "character-1684255947.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Я - директор института, преподаватель НИИЧАВО, кандидат математико-физических наук, филантроп и любимый ребёнок родителей."
+		},
+		{
+			"emit_signal": "Вопрос",
+			"event_id": "dialogic_040"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1684256025.json",
+		"name": "Приветствие"
+	}
+}

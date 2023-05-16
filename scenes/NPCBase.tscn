@@ -7,12 +7,15 @@ radius = 60.075
 
 [node name="NPCBase" type="Node2D"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="NPCAnimatedSprite" type="AnimatedSprite" parent="StaticBody2D"]
-
 [node name="NPCCollision" type="CollisionShape2D" parent="StaticBody2D"]
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
 
 [node name="DialogueZone" type="Area2D" parent="."]
 collision_layer = 16

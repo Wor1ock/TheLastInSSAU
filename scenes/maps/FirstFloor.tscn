@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://scenes/entity/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/table2.tscn" type="PackedScene" id=2]
@@ -13,57 +13,14 @@
 [ext_resource path="res://scenes/entity/enemy/CloseCombat/MiniEnemy.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/entity/enemy/CloseCombat/LaserEnemy.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/entity/enemy/CloseCombat/BigEnemy.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/NPCBase.tscn" type="PackedScene" id=14]
+[ext_resource path="res://icon.png" type="Texture" id=15]
 
-[sub_resource type="ConvexPolygonShape2D" id=34]
-points = PoolVector2Array( 32, 64, 0, 64, 0, 32, 32, 32 )
-
-[sub_resource type="ConvexPolygonShape2D" id=35]
-points = PoolVector2Array( 64, 64, 32, 64, 32, 0, 64, 0 )
-
-[sub_resource type="ConvexPolygonShape2D" id=36]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 64, 32, 64, 64, 0, 64 )
-
-[sub_resource type="ConvexPolygonShape2D" id=38]
-points = PoolVector2Array( 0, 64, 0, 0, 32, 0, 64, 0, 64, 32, 32, 32, 32, 64 )
-
-[sub_resource type="ConvexPolygonShape2D" id=39]
-points = PoolVector2Array( 32, 64, 0, 64, 0, 0, 32, 0 )
-
-[sub_resource type="ConvexPolygonShape2D" id=40]
-points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 64, 0, 64, 64, 32, 64 )
-
-[sub_resource type="ConvexPolygonShape2D" id=41]
-points = PoolVector2Array( 64, 32, 32, 32, 32, 0, 64, 0 )
-
-[sub_resource type="ConvexPolygonShape2D" id=42]
-points = PoolVector2Array( 32, 64, 0, 64, 0, 32, 32, 32 )
-
-[sub_resource type="ConvexPolygonShape2D" id=43]
-points = PoolVector2Array( 64, 64, 32, 64, 32, 32, 64, 32 )
-
-[sub_resource type="ConvexPolygonShape2D" id=44]
-points = PoolVector2Array( 64, 32, 0, 32, 0, 0, 64, 0 )
-
-[sub_resource type="ConvexPolygonShape2D" id=45]
-points = PoolVector2Array( 64, 32, 32, 32, 32, 0, 64, 0 )
-
-[sub_resource type="ConvexPolygonShape2D" id=46]
-points = PoolVector2Array( 64, 64, 32, 64, 32, 32, 64, 32 )
-
-[sub_resource type="ConvexPolygonShape2D" id=47]
-points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
-
-[sub_resource type="ConvexPolygonShape2D" id=48]
-points = PoolVector2Array( 32, 0, 64, 0, 64, 64, 0, 64, 0, 32, 32, 32 )
-
-[sub_resource type="ConvexPolygonShape2D" id=49]
-points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
-
-[sub_resource type="ConvexPolygonShape2D" id=50]
-points = PoolVector2Array( 64, 64, 0.20813, 63.8888, 0.595764, 0, 64, 0 )
+[sub_resource type="RectangleShape2D" id=55]
+extents = Vector2( 32, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=54]
-points = PoolVector2Array( 64, 64, 0.116714, 64, 0.116714, 31.6494, 64, 31.6494 )
+points = PoolVector2Array( 32, 64, 0, 64, 0, 32, 32, 32 )
 
 [sub_resource type="TileSet" id=19]
 0/name = "walls"
@@ -85,104 +42,104 @@ points = PoolVector2Array( 64, 64, 0.116714, 64, 0.116714, 31.6494, 64, 31.6494 
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 34 )
+0/shape = SubResource( 54 )
 0/shape_one_way = false
 0/shape_one_way_margin = 1.0
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 34 ),
+"shape": SubResource( 54 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 1, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 35 ),
+"shape": SubResource( 54 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 2, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 36 ),
+"shape": SubResource( 54 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 3, 1 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 38 ),
+"shape": SubResource( 54 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 3, 2 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 39 ),
+"shape": SubResource( 54 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 2, 2 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 40 ),
+"shape": SubResource( 54 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 2, 3 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 41 ),
+"shape": SubResource( 54 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 2, 3 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 42 ),
+"shape": SubResource( 54 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 1, 3 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 43 ),
+"shape": SubResource( 54 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 1, 2 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 44 ),
+"shape": SubResource( 54 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 0, 2 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 45 ),
+"shape": SubResource( 54 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 0, 1 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 46 ),
+"shape": SubResource( 54 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 0, 1 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 47 ),
+"shape": SubResource( 54 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 1, 1 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 48 ),
+"shape": SubResource( 54 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 3, 3 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 49 ),
+"shape": SubResource( 54 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 3, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 50 ),
+"shape": SubResource( 54 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 0, 3 ),
@@ -271,6 +228,16 @@ texture = ExtResource( 6 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 560, 80 )
+
+[node name="Медяков" parent="YSort" instance=ExtResource( 14 )]
+position = Vector2( 800, 96 )
+timelineName = "Приветствие"
+
+[node name="NPCCollision" parent="YSort/Медяков/StaticBody2D" index="0"]
+shape = SubResource( 55 )
+
+[node name="Sprite" parent="YSort/Медяков/StaticBody2D" index="1"]
+texture = ExtResource( 15 )
 
 [node name="walls" type="TileMap" parent="YSort"]
 z_index = -1
@@ -361,6 +328,62 @@ position = Vector2( -1248, -608 )
 [node name="toilet4" parent="YSort/hall/toilets" instance=ExtResource( 9 )]
 position = Vector2( -1120, -608 )
 
+[node name="enemies" type="Node" parent="YSort"]
+
+[node name="3DPrinter" parent="YSort/enemies" instance=ExtResource( 10 )]
+position = Vector2( 704, -216 )
+
+[node name="MiniEnemy2" parent="YSort/enemies" instance=ExtResource( 11 )]
+position = Vector2( 464, -232 )
+
+[node name="MiniEnemy3" parent="YSort/enemies" instance=ExtResource( 11 )]
+position = Vector2( 680, 8 )
+
+[node name="MiniEnemy4" parent="YSort/enemies" instance=ExtResource( 11 )]
+position = Vector2( 368, 128 )
+
+[node name="MiniEnemy5" parent="YSort/enemies" instance=ExtResource( 11 )]
+position = Vector2( 824, 120 )
+
+[node name="MiniEnemy6" parent="YSort/enemies" instance=ExtResource( 11 )]
+position = Vector2( 232, 32 )
+
+[node name="MiniEnemy7" parent="YSort/enemies" instance=ExtResource( 11 )]
+position = Vector2( 1144, -8 )
+
+[node name="MiniEnemy8" parent="YSort/enemies" instance=ExtResource( 11 )]
+position = Vector2( 440, 376 )
+
+[node name="MiniEnemy10" parent="YSort/enemies" instance=ExtResource( 11 )]
+position = Vector2( 1000, 376 )
+
+[node name="MiniEnemy9" parent="YSort/enemies" instance=ExtResource( 11 )]
+position = Vector2( 256, 208 )
+
+[node name="MiniEnemy" parent="YSort/enemies" instance=ExtResource( 11 )]
+position = Vector2( 896, -208 )
+
+[node name="BigEnemy2" parent="YSort/enemies" instance=ExtResource( 13 )]
+position = Vector2( 624, -112 )
+
+[node name="LaserEnemy" parent="YSort/enemies" instance=ExtResource( 12 )]
+position = Vector2( 488, -96 )
+
+[node name="BigEnemy" parent="YSort/enemies" instance=ExtResource( 13 )]
+position = Vector2( 808, -56 )
+
+[node name="BigEnemy3" parent="YSort/enemies" instance=ExtResource( 13 )]
+position = Vector2( -600, -440 )
+
+[node name="MiniEnemy11" parent="YSort/enemies" instance=ExtResource( 11 )]
+position = Vector2( -448, -184 )
+
+[node name="LaserEnemy2" parent="YSort/enemies" instance=ExtResource( 12 )]
+position = Vector2( -888, -296 )
+
+[node name="3DPrinter" parent="YSort/enemies/LaserEnemy2" instance=ExtResource( 10 )]
+position = Vector2( -464, -176 )
+
 [node name="doorto_second" parent="." instance=ExtResource( 5 )]
 position = Vector2( 704, -441 )
 new_player_x = 616.0
@@ -371,60 +394,5 @@ file_path = "res://scenes/maps/SecondFloor.tscn"
 position = Vector2( 32, -15 )
 shape = SubResource( 53 )
 
-[node name="enemies" type="Node" parent="."]
-
-[node name="3DPrinter" parent="enemies" instance=ExtResource( 10 )]
-position = Vector2( 704, -216 )
-
-[node name="MiniEnemy2" parent="enemies" instance=ExtResource( 11 )]
-position = Vector2( 464, -232 )
-
-[node name="MiniEnemy3" parent="enemies" instance=ExtResource( 11 )]
-position = Vector2( 680, 8 )
-
-[node name="MiniEnemy4" parent="enemies" instance=ExtResource( 11 )]
-position = Vector2( 368, 128 )
-
-[node name="MiniEnemy5" parent="enemies" instance=ExtResource( 11 )]
-position = Vector2( 824, 120 )
-
-[node name="MiniEnemy6" parent="enemies" instance=ExtResource( 11 )]
-position = Vector2( 232, 32 )
-
-[node name="MiniEnemy7" parent="enemies" instance=ExtResource( 11 )]
-position = Vector2( 1144, -8 )
-
-[node name="MiniEnemy8" parent="enemies" instance=ExtResource( 11 )]
-position = Vector2( 440, 376 )
-
-[node name="MiniEnemy10" parent="enemies" instance=ExtResource( 11 )]
-position = Vector2( 1000, 376 )
-
-[node name="MiniEnemy9" parent="enemies" instance=ExtResource( 11 )]
-position = Vector2( 256, 208 )
-
-[node name="MiniEnemy" parent="enemies" instance=ExtResource( 11 )]
-position = Vector2( 896, -208 )
-
-[node name="BigEnemy2" parent="enemies" instance=ExtResource( 13 )]
-position = Vector2( 624, -112 )
-
-[node name="LaserEnemy" parent="enemies" instance=ExtResource( 12 )]
-position = Vector2( 488, -96 )
-
-[node name="BigEnemy" parent="enemies" instance=ExtResource( 13 )]
-position = Vector2( 808, -56 )
-
-[node name="BigEnemy3" parent="enemies" instance=ExtResource( 13 )]
-position = Vector2( -600, -440 )
-
-[node name="MiniEnemy11" parent="enemies" instance=ExtResource( 11 )]
-position = Vector2( -448, -184 )
-
-[node name="LaserEnemy2" parent="enemies" instance=ExtResource( 12 )]
-position = Vector2( -888, -296 )
-
-[node name="3DPrinter" parent="enemies/LaserEnemy2" instance=ExtResource( 10 )]
-position = Vector2( -464, -176 )
-
+[editable path="YSort/Медяков"]
 [editable path="doorto_second"]
