@@ -371,58 +371,58 @@ file_path = "res://scenes/maps/SecondFloor.tscn"
 position = Vector2( 32, -15 )
 shape = SubResource( 53 )
 
-[node name="enemies" type="YSort" parent="."]
-position = Vector2( 800, -16 )
+[node name="enemies" type="Node" parent="."]
 
 [node name="3DPrinter" parent="enemies" instance=ExtResource( 10 )]
-position = Vector2( -104, -160 )
+position = Vector2( 704, -216 )
 
 [node name="MiniEnemy2" parent="enemies" instance=ExtResource( 11 )]
-position = Vector2( -344, -176 )
+position = Vector2( 464, -232 )
 
 [node name="MiniEnemy3" parent="enemies" instance=ExtResource( 11 )]
-position = Vector2( -128, 64 )
+position = Vector2( 680, 8 )
 
 [node name="MiniEnemy4" parent="enemies" instance=ExtResource( 11 )]
-position = Vector2( -440, 184 )
+position = Vector2( 368, 128 )
 
 [node name="MiniEnemy5" parent="enemies" instance=ExtResource( 11 )]
-position = Vector2( 16, 176 )
+position = Vector2( 824, 120 )
 
 [node name="MiniEnemy6" parent="enemies" instance=ExtResource( 11 )]
-position = Vector2( -576, 88 )
+position = Vector2( 232, 32 )
 
 [node name="MiniEnemy7" parent="enemies" instance=ExtResource( 11 )]
-position = Vector2( 336, 48 )
+position = Vector2( 1144, -8 )
 
 [node name="MiniEnemy8" parent="enemies" instance=ExtResource( 11 )]
-position = Vector2( -368, 432 )
+position = Vector2( 440, 376 )
 
 [node name="MiniEnemy10" parent="enemies" instance=ExtResource( 11 )]
-position = Vector2( 192, 432 )
+position = Vector2( 1000, 376 )
 
 [node name="MiniEnemy9" parent="enemies" instance=ExtResource( 11 )]
-position = Vector2( -552, 264 )
+position = Vector2( 256, 208 )
 
 [node name="MiniEnemy" parent="enemies" instance=ExtResource( 11 )]
-position = Vector2( 88, -152 )
+position = Vector2( 896, -208 )
 
 [node name="BigEnemy2" parent="enemies" instance=ExtResource( 13 )]
-position = Vector2( -184, -56 )
+position = Vector2( 624, -112 )
 
 [node name="LaserEnemy" parent="enemies" instance=ExtResource( 12 )]
-position = Vector2( -320, -40 )
+position = Vector2( 488, -96 )
 
 [node name="BigEnemy" parent="enemies" instance=ExtResource( 13 )]
+position = Vector2( 808, -56 )
 
 [node name="BigEnemy3" parent="enemies" instance=ExtResource( 13 )]
-position = Vector2( -1408, -384 )
+position = Vector2( -600, -440 )
 
 [node name="MiniEnemy11" parent="enemies" instance=ExtResource( 11 )]
-position = Vector2( -1256, -128 )
+position = Vector2( -448, -184 )
 
 [node name="LaserEnemy2" parent="enemies" instance=ExtResource( 12 )]
-position = Vector2( -1696, -240 )
+position = Vector2( -888, -296 )
 
 [node name="3DPrinter" parent="enemies/LaserEnemy2" instance=ExtResource( 10 )]
 position = Vector2( -464, -176 )
