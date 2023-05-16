@@ -675,8 +675,9 @@ points = PoolVector2Array( 16, 32, 0, 32, 0, 16, 16, 16 )
 } ]
 1/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=70]
-extents = Vector2( 249, 10 )
+[sub_resource type="SegmentShape2D" id=70]
+a = Vector2( 192, 57 )
+b = Vector2( -192, 57 )
 
 [node name="SecondFloor" type="Node"]
 
@@ -724,15 +725,13 @@ tile_data = PoolIntArray( -1245169, 0, 131078, -1245168, 0, 262147, -1245167, 0,
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0, 0, 0, 1 )
 
-[node name="portal" type="Area2D" parent="."]
-position = Vector2( 512, -448 )
-
-[node name="doorto_first" parent="portal" instance=ExtResource( 6 )]
-position = Vector2( 192, 7 )
+[node name="doorto_first" parent="." instance=ExtResource( 6 )]
+position = Vector2( 704, -441 )
 new_player_x = 608.0
 new_player_y = -320.0
 file_path = "res://scenes/maps/FirstFloor.tscn"
 
-[node name="door" type="CollisionShape2D" parent="portal/doorto_first"]
-position = Vector2( 0, 1 )
+[node name="CollisionShape2D" parent="doorto_first" index="0"]
 shape = SubResource( 70 )
+
+[editable path="doorto_first"]

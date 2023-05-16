@@ -244,8 +244,9 @@ points = PoolVector2Array( 192, 244.75, 176.982, 244.75, 176.982, 20.5025, 192, 
 } ]
 1/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=53]
-extents = Vector2( 249, 10 )
+[sub_resource type="SegmentShape2D" id=53]
+a = Vector2( -224, 9 )
+b = Vector2( 160, 8 )
 
 [node name="FirstFloor" type="Node2D"]
 
@@ -347,15 +348,14 @@ position = Vector2( -1248, -608 )
 [node name="toilet4" parent="YSort/toilets" instance=ExtResource( 9 )]
 position = Vector2( -1120, -608 )
 
-[node name="portal" type="Area2D" parent="."]
-position = Vector2( 512, -448 )
-
-[node name="doorto_second" parent="portal" instance=ExtResource( 5 )]
-position = Vector2( 192, 7 )
+[node name="doorto_second" parent="." instance=ExtResource( 5 )]
+position = Vector2( 704, -441 )
 new_player_x = 616.0
 new_player_y = -432.0
 file_path = "res://scenes/maps/SecondFloor.tscn"
 
-[node name="door" type="CollisionShape2D" parent="portal/doorto_second"]
-position = Vector2( 0, 1 )
+[node name="CollisionShape2D" parent="doorto_second" index="0"]
+position = Vector2( 32, 177 )
 shape = SubResource( 53 )
+
+[editable path="doorto_second"]
