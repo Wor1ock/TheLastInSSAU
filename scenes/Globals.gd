@@ -49,3 +49,12 @@ func get_new_player_pos_to(player: KinematicBody2D):
 		return
 	player.position = new_player_position
 	has_new_player_position = false
+	
+#воспроизведение звука
+func play_sound(path: String):
+	var sound = load(path)
+	if sound:
+		var player = AudioStreamPlayer.new()
+		player.stream = sound
+		add_child(player)
+		player.play()
