@@ -1,0 +1,21 @@
+{
+	"color": "#ff2d79e5",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1684261461.json",
+	"mirror_portraits": false,
+	"name": "Портнова",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": -200,
+	"offset_y": -65,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://icon.png"
+		}
+	],
+	"scale": 200,
+	"theme": ""
+}

@@ -1,0 +1,126 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1684255947.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1634488067",
+			"index": 0,
+			"name": "начало"
+		},
+		{
+			"character": "character-1684255947.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Что ещё ты хочешь узнать?"
+		},
+		{
+			"choice": "Расскажите, что здесь произошло.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1684255947.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ничего странного, обычный день из жизни преподавателя факультета информатики."
+		},
+		{
+			"character": "character-1684255947.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Один из ваших товарищей был крайне несогласен со своей оценкой по истории, поэтому решил испортить жизнь всем и запустил на суперкомпьютер вирус. "
+		},
+		{
+			"character": "character-1684255947.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Суперкомпьютер сошёл с ума и начал генерировать опасных существ. К счастью, на нём установлен современнный антивирус и система уже восставновилась."
+		},
+		{
+			"character": "character-1684255947.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Однако враждебные роботы всё ещё бродят по коридорам университета. Поможешь?"
+		},
+		{
+			"choice": "Да!",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"choice": "За деньги ДА",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
+			"choice": "Расскажите анекдот",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1684255947.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Заходит однажды тестировщик в бар... забегает в бар... пролезает в бар... танцуя, проникает в бар... крадется в бар... врывается в бар... прыгает в бар..."
+		},
+		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
+			"choice": "Ничего. Пока!",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1684256774.json",
+		"name": "Вопрос"
+	}
+}
