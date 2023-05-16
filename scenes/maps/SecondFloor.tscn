@@ -750,7 +750,6 @@ position = Vector2( 64, 368 )
 position = Vector2( 688, 96 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="doorto_first" parent="." instance=ExtResource( 6 )]
