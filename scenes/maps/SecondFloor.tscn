@@ -726,7 +726,7 @@ tile_data = PoolIntArray( -1245169, 0, 131078, -1245168, 0, 262147, -1245167, 0,
 color = Color( 0, 0, 0, 1 )
 
 [node name="doorto_first" parent="." instance=ExtResource( 6 )]
-position = Vector2( 704, -441 )
+position = Vector2( 712, -640 )
 new_player_x = 608.0
 new_player_y = -320.0
 file_path = "res://scenes/maps/FirstFloor.tscn"

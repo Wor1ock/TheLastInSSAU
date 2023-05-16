@@ -257,7 +257,7 @@ texture = ExtResource( 6 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 608, -320 )
+position = Vector2( 576, -128 )
 
 [node name="walls" type="TileMap" parent="YSort"]
 z_index = -1
@@ -355,7 +355,7 @@ new_player_y = -432.0
 file_path = "res://scenes/maps/SecondFloor.tscn"
 
 [node name="CollisionShape2D" parent="doorto_second" index="0"]
-position = Vector2( 32, 177 )
+position = Vector2( 32, -15 )
 shape = SubResource( 53 )
 
 [editable path="doorto_second"]
