@@ -1,4 +1,5 @@
-extends "res://scenes/entity/enemy/EnemyBase.gd"
+extends "res://scenes/entity/enemy/CloseCombat/CloseCombat.gd"
+
 
 export var mini_enemy: PackedScene
 #Надо будет переделать так, чтоб на расстоянии от игрока держался
@@ -12,7 +13,7 @@ func spawn ():
 	var tl=get_node("..")
 	tl.add_child(inst1)
 	tl.add_child(inst2)
-	inst1.transform=$Position2D.global_transform
+	inst1.transform=$Position2D3.global_transform
 	inst2.transform=$Position2D2.global_transform
 
 

@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/entity/enemy/3DPrinter.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://assets/enemies/3D_printer.png" type="Texture" id=2]
 [ext_resource path="res://scenes/entity/enemy/CloseCombat/MiniEnemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/entity/enemy/Long-RangeCombat/Spawner.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/entity/enemy/CloseCombat/BigEnemy.tscn" type="PackedScene" id=5]
@@ -11,8 +11,59 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 31, 46 )
 
+[sub_resource type="Animation" id=3]
+resource_name = "Hide"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 10, 11 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Idle"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 41.0122
+
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 24.5, 36.5 )
+extents = Vector2( 12.75, 20.75 )
 
 [node name="3DPrinter" instance=ExtResource( 7 )]
 script = ExtResource( 1 )
@@ -25,15 +76,28 @@ big_enemy = ExtResource( 5 )
 spawner = ExtResource( 4 )
 
 [node name="Sprite" parent="." index="0"]
-modulate = Color( 1, 0.960784, 0, 1 )
-scale = Vector2( 1, 1.5 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
+hframes = 8
+vframes = 2
 
 [node name="CollisionShape2D" parent="." index="1"]
+visible = false
 shape = SubResource( 1 )
 
+[node name="AnimationPlayer" parent="." index="2"]
+anims/Hide = SubResource( 3 )
+anims/Idle = SubResource( 4 )
+anims/RESET = SubResource( 5 )
+
+[node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
+shape = SubResource( 6 )
+
+[node name="HurtboxShape" parent="." index="4"]
+visible = false
+
 [node name="CollisionShape2D" parent="HurtboxShape" index="0"]
-position = Vector2( -0.5, 0.5 )
+position = Vector2( 1, 0 )
 shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="." index="5"]

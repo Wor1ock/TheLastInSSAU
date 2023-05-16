@@ -19,7 +19,7 @@ func _ready():
 func engage(player):
 	motion = Vector2.ZERO
 	if player and is_instance_valid(player):
-		look_at(player.position)
+		#look_at(player.position)
 		motion = position.direction_to(player.position)*speed
 	motion = move_and_slide(motion)
 

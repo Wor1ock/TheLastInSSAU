@@ -21,18 +21,6 @@ enum {
 }
 
 var state = MOVE
-
-#func engage(player):
-#	animationTree.active = true
-#	motion = Vector2.ZERO
-#	if player and is_instance_valid(player):
-#		#look_at(player.position)
-#		motion = position.direction_to(player.position)*speed
-#
-#	animationTree.set("parameters/blend_position", motion)
-#
-#	motion = move_and_slide(motion)
-#	#animationState.travel("Idle")
 	
 func engage(player):
 	match state:

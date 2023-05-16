@@ -6,11 +6,25 @@ export var laser_enemy:PackedScene
 export var big_enemy:PackedScene
 export var spawner:PackedScene
 
+enum {
+	IDLE,
+	HIDE
+}
+
+var state = IDLE
+
+onready var animationPlayer = $AnimationPlayer
 var stop = false
 var stop_pos
 var pos_
 func _ready():
-	timer.start()
+	match state:
+		IDLE:
+			animationPlayer.play("Idle")
+			timer.start()
+		HIDE:
+			timer.stop()
+			animationPlayer.play("Hide")
 	
 
 	
@@ -26,8 +40,19 @@ func spawn ():
 
 
 func _on_Timer_timeout():
+	#if state != HIDE:
 	spawn()
 	timer.start()
+	
+	
+func _on_PlayerDetectionZone_body_entered(body):
+	state = HIDE
+			
+			
+
+func _on_PlayerDetectionZone_body_exited(body):
+	state = IDLE
+
 
 
 
