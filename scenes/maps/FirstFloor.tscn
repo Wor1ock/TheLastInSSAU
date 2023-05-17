@@ -436,11 +436,12 @@ position = Vector2( -600, -440 )
 [node name="MiniEnemy11" parent="YSort/enemies" instance=ExtResource( 11 )]
 position = Vector2( -448, -184 )
 
+[node name="3DPrinter2" parent="YSort/enemies" instance=ExtResource( 10 )]
+position = Vector2( -1352, -472 )
+scale = Vector2( 1.13984, 0.432648 )
+
 [node name="LaserEnemy2" parent="YSort/enemies" instance=ExtResource( 12 )]
 position = Vector2( -888, -296 )
-
-[node name="3DPrinter" parent="YSort/enemies/LaserEnemy2" instance=ExtResource( 10 )]
-position = Vector2( -464, -176 )
 
 [node name="doorto_second" parent="." instance=ExtResource( 5 )]
 position = Vector2( 704, -441 )
