@@ -5,7 +5,7 @@
 [ext_resource path="res://scenes/entity/enemy/CloseCombat/CloseCombat.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=5]
-radius = 30.0
+radius = 24.0
 height = 0.0
 
 [sub_resource type="Animation" id=11]
@@ -225,7 +225,11 @@ extents = Vector2( 22.5, 25 )
 extents = Vector2( 9, 6.5 )
 
 [node name="LaserEnemy" groups=["laser"] instance=ExtResource( 3 )]
+position = Vector2( 0, -21 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 damage = 1
 
 [node name="Sprite" parent="." index="0"]

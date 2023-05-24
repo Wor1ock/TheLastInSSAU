@@ -4,9 +4,9 @@
 [ext_resource path="res://assets/enemies/big_enemy.png" type="Texture" id=2]
 [ext_resource path="res://scenes/entity/enemy/CloseCombat/CloseCombat.tscn" type="PackedScene" id=3]
 
-[sub_resource type="CapsuleShape2D" id=27]
-radius = 31.0
-height = 8.0
+[sub_resource type="CapsuleShape2D" id=51]
+radius = 17.0
+height = 26.0
 
 [sub_resource type="Animation" id=28]
 resource_name = "BackAttack"
@@ -377,8 +377,11 @@ extents = Vector2( 23.5, 23.5 )
 extents = Vector2( 17.8125, 10 )
 
 [node name="BigEnemy" instance=ExtResource( 3 )]
-position = Vector2( 0, -12 )
+position = Vector2( 0, -28 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 speed = 60
 max_health = 100
 health = 40
@@ -391,8 +394,9 @@ hframes = 6
 vframes = 9
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( 0, 12 )
-shape = SubResource( 27 )
+position = Vector2( 0, -2 )
+rotation = 1.5708
+shape = SubResource( 51 )
 
 [node name="AnimationPlayer" parent="." index="2"]
 anims/BackAttack = SubResource( 28 )

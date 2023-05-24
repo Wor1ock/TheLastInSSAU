@@ -225,7 +225,11 @@ extents = Vector2( 14, 13 )
 extents = Vector2( 3.875, 11 )
 
 [node name="MiniEnemy" instance=ExtResource( 3 )]
+position = Vector2( 0, -16 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 speed = 200
 damage = 1
 

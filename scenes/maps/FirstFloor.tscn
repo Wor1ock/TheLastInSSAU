@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://scenes/entity/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/table2.tscn" type="PackedScene" id=2]
@@ -14,10 +14,11 @@
 [ext_resource path="res://scenes/entity/enemy/CloseCombat/LaserEnemy.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/entity/enemy/CloseCombat/BigEnemy.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/NPCBase.tscn" type="PackedScene" id=14]
-[ext_resource path="res://icon.png" type="Texture" id=15]
+[ext_resource path="res://assets/npcs/купрум.png" type="Texture" id=15]
+[ext_resource path="res://scenes/entity/enemy/Long-RangeCombat/Spawner.tscn" type="PackedScene" id=16]
 
-[sub_resource type="RectangleShape2D" id=55]
-extents = Vector2( 32, 32 )
+[sub_resource type="CapsuleShape2D" id=74]
+height = 12.0
 
 [sub_resource type="ConvexPolygonShape2D" id=56]
 points = PoolVector2Array( 64, 64, 32, 64, 32, 0, 64, 0 )
@@ -284,14 +285,14 @@ texture = ExtResource( 6 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 560, 80 )
+position = Vector2( 464, 384 )
 
 [node name="Медяков" parent="YSort" instance=ExtResource( 14 )]
 position = Vector2( 800, 96 )
 timelineName = "Приветствие"
 
 [node name="NPCCollision" parent="YSort/Медяков/StaticBody2D" index="0"]
-shape = SubResource( 55 )
+shape = SubResource( 74 )
 
 [node name="Sprite" parent="YSort/Медяков/StaticBody2D" index="1"]
 texture = ExtResource( 15 )
@@ -386,62 +387,31 @@ position = Vector2( -1248, -608 )
 [node name="toilet4" parent="YSort/hall/toilets" instance=ExtResource( 9 )]
 position = Vector2( -1120, -608 )
 
+[node name="3DPrinter" parent="YSort" instance=ExtResource( 10 )]
+position = Vector2( -1344, -432 )
+
+[node name="BigEnemy" parent="YSort" instance=ExtResource( 13 )]
+position = Vector2( -1144, -284 )
+
+[node name="Spawner" parent="YSort" instance=ExtResource( 16 )]
+position = Vector2( -80, 216 )
+
+[node name="MiniEnemy2" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 848, -232 )
+
+[node name="MiniEnemy3" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 600, -232 )
+
+[node name="MiniEnemy4" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 432, -224 )
+
+[node name="LaserEnemy" parent="YSort" instance=ExtResource( 12 )]
+position = Vector2( -608, -312 )
+
+[node name="MiniEnemy" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( -576, -40 )
+
 [node name="enemies" type="Node" parent="YSort"]
-
-[node name="3DPrinter" parent="YSort/enemies" instance=ExtResource( 10 )]
-position = Vector2( 704, -216 )
-
-[node name="MiniEnemy2" parent="YSort/enemies" instance=ExtResource( 11 )]
-position = Vector2( 464, -232 )
-
-[node name="MiniEnemy3" parent="YSort/enemies" instance=ExtResource( 11 )]
-position = Vector2( 680, 8 )
-
-[node name="MiniEnemy4" parent="YSort/enemies" instance=ExtResource( 11 )]
-position = Vector2( 368, 128 )
-
-[node name="MiniEnemy5" parent="YSort/enemies" instance=ExtResource( 11 )]
-position = Vector2( 824, 120 )
-
-[node name="MiniEnemy6" parent="YSort/enemies" instance=ExtResource( 11 )]
-position = Vector2( 232, 32 )
-
-[node name="MiniEnemy7" parent="YSort/enemies" instance=ExtResource( 11 )]
-position = Vector2( 1144, -8 )
-
-[node name="MiniEnemy8" parent="YSort/enemies" instance=ExtResource( 11 )]
-position = Vector2( 440, 376 )
-
-[node name="MiniEnemy10" parent="YSort/enemies" instance=ExtResource( 11 )]
-position = Vector2( 1000, 376 )
-
-[node name="MiniEnemy9" parent="YSort/enemies" instance=ExtResource( 11 )]
-position = Vector2( 256, 208 )
-
-[node name="MiniEnemy" parent="YSort/enemies" instance=ExtResource( 11 )]
-position = Vector2( 896, -208 )
-
-[node name="BigEnemy2" parent="YSort/enemies" instance=ExtResource( 13 )]
-position = Vector2( 624, -112 )
-
-[node name="LaserEnemy" parent="YSort/enemies" instance=ExtResource( 12 )]
-position = Vector2( 488, -96 )
-
-[node name="BigEnemy" parent="YSort/enemies" instance=ExtResource( 13 )]
-position = Vector2( 808, -56 )
-
-[node name="BigEnemy3" parent="YSort/enemies" instance=ExtResource( 13 )]
-position = Vector2( -600, -440 )
-
-[node name="MiniEnemy11" parent="YSort/enemies" instance=ExtResource( 11 )]
-position = Vector2( -448, -184 )
-
-[node name="3DPrinter2" parent="YSort/enemies" instance=ExtResource( 10 )]
-position = Vector2( -1352, -472 )
-scale = Vector2( 1.13984, 0.432648 )
-
-[node name="LaserEnemy2" parent="YSort/enemies" instance=ExtResource( 12 )]
-position = Vector2( -888, -296 )
 
 [node name="doorto_second" parent="." instance=ExtResource( 5 )]
 position = Vector2( 704, -441 )

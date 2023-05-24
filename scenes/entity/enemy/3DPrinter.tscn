@@ -66,7 +66,11 @@ radius = 41.0122
 extents = Vector2( 12.75, 20.75 )
 
 [node name="3DPrinter" instance=ExtResource( 7 )]
+position = Vector2( -1, -30 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 speed = 0
 max_health = 100
 health = 100
@@ -76,6 +80,7 @@ big_enemy = ExtResource( 5 )
 spawner = ExtResource( 4 )
 
 [node name="Sprite" parent="." index="0"]
+position = Vector2( -22, 0 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
 hframes = 8
