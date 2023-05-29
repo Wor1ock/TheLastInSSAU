@@ -18,7 +18,8 @@
 [ext_resource path="res://scenes/entity/enemy/Long-RangeCombat/Spawner.tscn" type="PackedScene" id=16]
 
 [sub_resource type="CapsuleShape2D" id=74]
-height = 12.0
+radius = 24.0
+height = 32.0
 
 [sub_resource type="ConvexPolygonShape2D" id=56]
 points = PoolVector2Array( 64, 64, 32, 64, 32, 0, 64, 0 )
@@ -292,9 +293,12 @@ position = Vector2( 800, 96 )
 timelineName = "Приветствие"
 
 [node name="NPCCollision" parent="YSort/Медяков/StaticBody2D" index="0"]
+position = Vector2( 0, -5 )
 shape = SubResource( 74 )
 
 [node name="Sprite" parent="YSort/Медяков/StaticBody2D" index="1"]
+position = Vector2( 0, -8 )
+scale = Vector2( 3, 2.5 )
 texture = ExtResource( 15 )
 
 [node name="walls" type="TileMap" parent="YSort"]

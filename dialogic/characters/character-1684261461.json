@@ -8,14 +8,14 @@
 	"name": "Портнова",
 	"nickname": "",
 	"nickname_bool": false,
-	"offset_x": -200,
+	"offset_x": -100,
 	"offset_y": -65,
 	"portraits": [
 		{
 			"name": "Default",
-			"path": "res://icon.png"
+			"path": "res://assets/npcs/портнова.png"
 		}
 	],
-	"scale": 200,
+	"scale": 300,
 	"theme": ""
 }
