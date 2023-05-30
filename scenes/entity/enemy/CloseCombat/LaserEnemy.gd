@@ -31,7 +31,7 @@ var st=true
 func _physics_process(delta):
 	if st==true:
 		set_state(State.PATROL)
-		patrol_timer.start()
+	
 		st=false
 	match current_state:
 		State.PATROL:
@@ -49,7 +49,6 @@ func _physics_process(delta):
 func set_state(new_state: int):
 	if new_state == State.PATROL:
 		origin = global_position
-		patrol_timer.start()
 		patrol_location_reached = true
 	current_state = new_state
 	print(new_state)

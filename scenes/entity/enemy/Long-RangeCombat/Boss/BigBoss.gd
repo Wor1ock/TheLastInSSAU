@@ -93,7 +93,6 @@ func set_state(new_state: int):
 	
 	if new_state == State.PATROL:
 		origin = global_position
-		patrol_timer.start()
 		patrol_location_reached = true
 	current_state = new_state
 	print(new_state)

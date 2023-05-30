@@ -26,7 +26,7 @@ radius = 201.01
 script = ExtResource( 1 )
 speed = 50
 max_health = 100
-health = 30
+health = 20
 damage = 360
 BULLET = ExtResource( 4 )
 mini_enemy = ExtResource( 7 )
@@ -60,7 +60,7 @@ collide_with_areas = true
 collide_with_bodies = false
 
 [node name="ReloadTimer" type="Timer" parent="RayCast2D" index="0"]
-wait_time = 0.5
+wait_time = 1.25
 one_shot = true
 
 [node name="Timer" type="Timer" parent="." index="7"]
@@ -80,7 +80,7 @@ position = Vector2( 52, 1 )
 position = Vector2( -46, 1 )
 
 [node name="SpawnTimer" type="Timer" parent="." index="12"]
-wait_time = 7.0
+wait_time = 10.0
 autostart = true
 
 [node name="ShootingZone" type="Area2D" parent="." index="13"]

@@ -385,6 +385,7 @@ __meta__ = {
 speed = 60
 max_health = 100
 health = 40
+damage = 3
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2( 0, 15 )
