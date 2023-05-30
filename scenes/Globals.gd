@@ -7,7 +7,7 @@ var new_player_position = Vector2(0.0, 0.0)
 var player_stats = {
 	"speed": 0,
 	"max_health": 1,
-	"health": 1,
+	#"health": 1,
 	"damage": 0,
 	"prev_velocity": Vector2.ZERO,
 	"dash_speed": 0,
