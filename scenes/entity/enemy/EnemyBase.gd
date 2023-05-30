@@ -6,7 +6,6 @@ extends "res://scenes/entity/EntityBase.gd"
 onready var player_detection_zone = $PlayerDetectionZone
 
 
-onready var timer = $Timer
 var motion = Vector2.ZERO
 var player = null
 
@@ -24,9 +23,6 @@ func engage(player):
 	motion = move_and_slide(motion)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 func _on_PlayerDetectionZone_body_entered(body):
 		if body.is_in_group("player"):

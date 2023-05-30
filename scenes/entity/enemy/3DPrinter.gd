@@ -13,6 +13,7 @@ enum {
 
 var state = IDLE
 
+onready var timer = $Timer
 onready var animationPlayer = $AnimationPlayer
 var stop = false
 var stop_pos
