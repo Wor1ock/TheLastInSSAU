@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/background/walls1.png" type="Texture" id=1]
 [ext_resource path="res://scenes/entity/enemy/Long-RangeCombat/Boss/BigBoss.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/entity/player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/maps/ThirdFloor.gd" type="Script" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=34]
 points = PoolVector2Array( 32, 64, 0, 64, 0, 32, 32, 32 )
@@ -198,6 +199,7 @@ points = PoolVector2Array( 64, 64, 0.116714, 64, 0.116714, 31.6494, 64, 31.6494 
 1/z_index = 0
 
 [node name="ThirdFloor" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="walls" type="TileMap" parent="."]
 z_index = -1
@@ -212,3 +214,5 @@ position = Vector2( 280, 488 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 872, 216 )
+
+[connection signal="died" from="BigBoss" to="." method="_on_BigBoss_died"]

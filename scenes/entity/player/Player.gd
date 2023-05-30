@@ -22,10 +22,12 @@ onready var animationState = animationTree.get("parameters/playback")
 onready var sprite = $Sprite
 onready var dash = $Dash
 onready var hurtbox = $HurtboxShape
+onready var gameOverScreen = $GameOverScreen
 
 
 func _ready():
 	animationTree.active = true
+	gameOverScreen.hide()
 	
 	self.damage = damage
 	
@@ -105,3 +107,9 @@ func _on_HitboxShape_area_entered(body):
 	if body.has_method("hurtbox_take_damage"):
 		Globals.play_sound("res://sounds/ударпо_роботу.mp3")
 		body.hurtbox_take_damage(damage)
+
+# Вызывается при смерти персонажа
+func die():
+	emit_signal("died")
+	gameOverScreen.show()
+	get_tree().paused = true
