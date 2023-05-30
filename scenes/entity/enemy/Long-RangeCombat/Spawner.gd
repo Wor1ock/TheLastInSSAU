@@ -2,11 +2,11 @@ extends "res://scenes/entity/enemy/CloseCombat/CloseCombat.gd"
 
 
 export var mini_enemy: PackedScene
-#Надо будет переделать так, чтоб на расстоянии от игрока держался
+
 func _physics_process(delta):
 	engage(player)
 
-
+# Функция для спавна 2 маленьких мобов
 func spawn (): 
 	var inst1= mini_enemy.instance()
 	var inst2= mini_enemy.instance()
